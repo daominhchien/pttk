@@ -1,0 +1,307 @@
+{
+  "khach_hang": [
+    {
+      "id": "KH001",
+      "ho_ten": "Nguyen Van A",
+      "ten_co_quan": "ABC Corp",
+      "sdt": "0123456789",
+      "email": "nguyenvana@gmail.com",
+      "dia_chi": "123 Nguyen Trai, Hanoi",
+      "cccd": "123456789012",
+      "ngay_sinh": "1990-01-01",
+      "loai_khach_hang": "INDIVIDUAL"
+    },
+    {
+      "id": "KH002",
+      "ho_ten": "Tran Thi B",
+      "ten_co_quan": "XYZ Ltd",
+      "sdt": "0987654321",
+      "email": "tranthib@gmail.com",
+      "dia_chi": "456 Le Loi, HCMC",
+      "cccd": "234567890123",
+      "ngay_sinh": "1992-02-02",
+      "loai_khach_hang": "INDIVIDUAL"
+    }
+  ],
+  "nhan_vien": [
+    {
+      "id": "NV001",
+      "ho_ten": "Le Thi B",
+      "gioi_tinh": "F",
+      "email": "lethib@gmail.com",
+      "sdt": "0987654321",
+      "dia_chi": "456 Le Loi, HCMC",
+      "ngay_sinh": "1985-05-15"
+    }
+  ],
+  "vai_tro": [
+    {
+      "id": "VT001",
+      "ten_vai_tro": "Admin"
+    },
+    {
+      "id": "VT002",
+      "ten_vai_tro": "Staff"
+    }
+  ],
+  "tai_khoan": [
+    {
+      "id": "TK001",
+      "ten_dang_nhap": "admin",
+      "mat_khau": "hashed_password",
+      "id_nhan_vien": "NV001",
+      "id_vai_tro": "VT001",
+      "trang_thai": "ACTIVE"
+    }
+  ],
+  "chung_chi": [
+    {
+      "id": "CC001",
+      "ten_chung_chi": "TOEIC",
+      "gia": 500000
+    },
+    {
+      "id": "CC002",
+      "ten_chung_chi": "IELTS",
+      "gia": 1500000
+    },
+    {
+      "id": "CC003",
+      "ten_chung_chi": "WORD",
+      "gia": 300000
+    },
+    {
+      "id": "CC004",
+      "ten_chung_chi": "EXCEL",
+      "gia": 300000
+    },
+    {
+      "id": "CC005",
+      "ten_chung_chi": "MOS",
+      "gia": 700000
+    }
+  ],
+  "lich_thi": [
+    {
+      "id_chung_chi": "CC001",
+      "ngay_thi": "2025-06-20",
+      "gio_thi": "02:00",
+      "sl_toi_da": 20,
+      "so_luong_dk": 5,
+      "id": "LT001"
+    },
+    {
+      "id": "LT002",
+      "ngay_thi": "2025-06-22",
+      "gio_thi": "09:00:00",
+      "id_chung_chi": "CC002",
+      "so_luong_dk": 3,
+      "sl_toi_da": 15
+    },
+    {
+      "id": "LT003",
+      "ngay_thi": "2025-06-25",
+      "gio_thi": "13:30:00",
+      "id_chung_chi": "CC003",
+      "so_luong_dk": 2,
+      "sl_toi_da": 10
+    },
+    {
+      "id": "2dd6",
+      "id_chung_chi": "CC001",
+      "ngay_thi": "2025-06-02",
+      "gio_thi": "17:42",
+      "sl_toi_da": 111,
+      "so_luong_dk": 0
+    },
+    {
+      "id": "13d2",
+      "id_chung_chi": "CC001",
+      "ngay_thi": "2025-06-25",
+      "gio_thi": "15:09",
+      "sl_toi_da": 1000,
+      "so_luong_dk": 0
+    },
+    {
+      "id": "d1b5",
+      "id_chung_chi": "CC003",
+      "ngay_thi": "2025-06-11",
+      "gio_thi": "06:11",
+      "sl_toi_da": 100,
+      "so_luong_dk": 0
+    }
+  ],
+  "phieu_dang_ky": [
+    {
+      "id": "PDK100",
+      "id_khach_hang": "KH001",
+      "ngay_dang_ky": "2025-06-15",
+      "trang_thai": "PENDING",
+      "id_nhan_vien": "NV001",
+      "id_gia_han": null,
+      "trang_thai_gia_han": null
+    },
+    {
+      "id": "PDK002",
+      "id_khach_hang": "KH002",
+      "ngay_dang_ky": "2025-06-16",
+      "trang_thai": "PENDING",
+      "id_nhan_vien": "NV001",
+      "id_gia_han": null,
+      "trang_thai_gia_han": null
+    },
+    {
+      "id": "90d2",
+      "id_khach_hang": "KH002",
+      "ngay_dang_ky": "2025-06-16",
+      "trang_thai": "PENDING",
+      "id_nhan_vien": "NV001",
+      "id_gia_han": null,
+      "trang_thai_gia_han": null
+    }
+  ],
+  "chi_tiet_phieu_dang_ky": [
+    {
+      "id": "CTPDK001",
+      "id_phieu_dang_ky": "PDK001",
+      "id_lich_thi": "LT001"
+    },
+    {
+      "id": "CTPDK002",
+      "id_phieu_dang_ky": "PDK001",
+      "id_lich_thi": "LT003"
+    },
+    {
+      "id": "CTPDK003",
+      "id_phieu_dang_ky": "PDK002",
+      "id_lich_thi": "LT002"
+    },
+    {
+      "id": "CTPDK004",
+      "id_phieu_dang_ky": "PDK002",
+      "id_lich_thi": "LT004"
+    }
+  ],
+  "hoa_don": [
+    {
+      "id": "2295",
+      "id_phieu_dang_ky": "PDK001",
+      "ngay_tao": "2025-06-11",
+      "tong_tien": 800000,
+      "giam_gia": 11,
+      "phuong_thuc_tt": "Chuyển khoản",
+      "trang_thai": "PENDING"
+    },
+    {
+      "id_phieu_dang_ky": "PDK002",
+      "ngay_tao": "2025-06-18",
+      "tong_tien": 1500000,
+      "giam_gia": 10000,
+      "phuong_thuc_tt": "Tiền mặt",
+      "id": "d317"
+    }
+  ],
+  "thi_sinh": [
+    {
+      "id": "TS001",
+      "id_phieu_dang_ky": "PDK001",
+      "ho_ten": "Tran Van C",
+      "gioi_tinh": "M",
+      "sdt": "0912345678",
+      "email": "tranvanc@gmail.com",
+      "dia_chi": "789 Tran Hung Dao, Da Nang",
+      "cccd": "987654321012"
+    },
+    {
+      "id": "TS002",
+      "id_phieu_dang_ky": "PDK002",
+      "ho_ten": "Le Thi D",
+      "gioi_tinh": "F",
+      "sdt": "0934567890",
+      "email": "lethid@gmail.com",
+      "dia_chi": "321 Nguyen Hue, HCMC",
+      "cccd": "876543210987"
+    }
+  ],
+  "phieu_du_thi": [
+    {
+      "id": "PDT001",
+      "id_thi_sinh": "TS001",
+      "phong_thi": "Room A1"
+    },
+    {
+      "id": "PDT002",
+      "id_thi_sinh": "TS002",
+      "phong_thi": "Room B2"
+    }
+  ],
+  "ket_qua_thi": [
+    {
+      "id": "KQ001",
+      "id_phieu_du_thi": "PDT001",
+      "diem": "85",
+      "trang_thai": "PASSED"
+    },
+    {
+      "id": "KQ002",
+      "id_phieu_du_thi": "PDT002",
+      "diem": "78",
+      "trang_thai": "PASSED"
+    }
+  ],
+  "invoice_information": [
+    {
+      "id": "INV100",
+      "idPdk": "PDK100",
+      "idKh": "KH001",
+      "typeKh": "INDIVIDUAL",
+      "sumMoney": 1500000,
+      "discount": 50000,
+      "payment": 1450000,
+      "certificates": [
+        {
+          "id": 5,
+          "name": "Chứng chỉ MOS",
+          "price": 1500000
+        }
+      ]
+    },
+    {
+      "id": "INV101",
+      "idPdk": "PDK002",
+      "idKh": "KH002",
+      "typeKh": "INDIVIDUAL",
+      "sumMoney": 1500000,
+      "discount": 10000,
+      "payment": 1490000,
+      "certificates": [
+        {
+          "id": 2,
+          "name": "Chứng chỉ IELTS",
+          "price": 1500000
+        }
+      ]
+    }
+  ],
+  "invoice": [
+    {
+      "id": "cfc6",
+      "registration_form_id": "PDK100",
+      "invoice_date": "2025-06-18",
+      "sales_amount": "0.0",
+      "total_amount": "1500000",
+      "status": "PAID",
+      "payment_method": "Tiền mặt",
+      "discount": ""
+    },
+    {
+      "id": "e5cf",
+      "registration_form_id": "PDK002",
+      "invoice_date": "2025-06-18",
+      "sales_amount": "10000",
+      "total_amount": "1500000",
+      "status": "PAID",
+      "payment_method": "Chuyển khoản"
+    }
+  ]
+}
