@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Khởi tạo select chứng chỉ
-    initChungChiSelect();
 
     // Thêm lịch thi mới
     var btnAdd = document.getElementById('btn_them');
@@ -74,24 +72,6 @@ async function fetchChungChi() {
     }
 }
 
-// Populate select chứng chỉ
-function populateSelectChungChi(selectId, data) {
-    const selectElement = document.getElementById(selectId);
-    selectElement.innerHTML = '<option value="">-- Chọn chứng chỉ --</option>';
-    data.forEach(item => {
-        const option = document.createElement('option');
-        option.value = item.id;
-        option.textContent = item.ten_chung_chi;
-        selectElement.appendChild(option);
-    });
-}
-
-// Khởi tạo select chứng chỉ
-async function initChungChiSelect() {
-    const chungChiList = await fetchChungChi();
-    populateSelectChungChi('ten_chung_chi', chungChiList);
-    populateSelectChungChi('modal_tenChungChi', chungChiList); // cho modal sửa
-}
 
 
 //------------------------------ CRUD ------------------------------------
@@ -207,15 +187,24 @@ async function addLichThi() {
     var slToiDaInput = document.getElementById('sl_toi_da');
 
     if (tenChungChiInput && ngayThiInput && gioThiInput && slToiDaInput) {
-        var id_chung_chi = tenChungChiInput.value.trim();
+        var ten_chung_chi = tenChungChiInput.value.trim();
         var ngay_thi = ngayThiInput.value.trim();
         var gio_thi = gioThiInput.value.trim();
         var sl_toi_da = slToiDaInput.value.trim();
 
-        if (id_chung_chi === "" || ngay_thi === "" || gio_thi === "" || sl_toi_da === "") {
+        if (ten_chung_chi === "" || ngay_thi === "" || gio_thi === "" || sl_toi_da === "") {
             alert("Vui lòng điền đầy đủ thông tin vào tất cả các ô.");
             return;
         }
+                // Lấy id_chung_chi từ tên chứng chỉ
+        const chungChiList = await fetchChungChi();
+        const chungChi = chungChiList.find(c => c.ten_chung_chi === ten_chung_chi);
+        if (!chungChi) {
+            alert("Không tìm thấy chứng chỉ này!");
+            return;
+        }
+        var id_chung_chi = chungChi.id;
+
         // Kiểm tra trùng giờ, trùng lịch thi cho cùng chứng chỉ và cách nhau ít nhất 2 tiếng
         const res = await fetch('http://localhost:8081/lich_thi');
         const lichThiList = await res.json();
@@ -271,9 +260,9 @@ function editLichThi(id) {
                 document.getElementById('modalOverlay').style.display = 'flex';
 
                 fetchChungChi().then(function(chungChiList) {
-                    populateSelectChungChi('modal_tenChungChi', chungChiList);
-
-                    document.getElementById('modal_tenChungChi').value = lichThi.id_chung_chi;
+                    // Tìm tên chứng chỉ theo id_chung_chi
+                    const chungChi = chungChiList.find(c => String(c.id) === String(lichThi.id_chung_chi));
+                    document.getElementById('modal_tenChungChi').value = chungChi ? chungChi.ten_chung_chi : '';
                     document.getElementById('modal_ngayThi').value = lichThi.ngay_thi;
                     document.getElementById('modal_gioThi').value = lichThi.gio_thi;
                     document.getElementById('modal_soLuongToiDa').value = lichThi.sl_toi_da;
@@ -281,15 +270,24 @@ function editLichThi(id) {
                     var btnSave = document.getElementById('modalSaveBtn');
                     btnSave.onclick = null;
                     btnSave.onclick = async function() {
-                        var id_chung_chi = document.getElementById('modal_tenChungChi').value.trim();
+                        var ten_chung_chi = document.getElementById('modal_tenChungChi').value.trim();
                         var ngay_thi = document.getElementById('modal_ngayThi').value.trim();
                         var gio_thi = document.getElementById('modal_gioThi').value.trim();
                         var sl_toi_da = document.getElementById('modal_soLuongToiDa').value.trim();
 
-                        if (!id_chung_chi || !ngay_thi || !gio_thi || !sl_toi_da) {
+                        if (!ten_chung_chi || !ngay_thi || !gio_thi || !sl_toi_da) {
                             alert("Vui lòng điền đầy đủ thông tin");
                             return;
                         }
+
+                        // Lấy id_chung_chi từ tên chứng chỉ
+                        const chungChiList2 = await fetchChungChi();
+                        const chungChi2 = chungChiList2.find(c => c.ten_chung_chi === ten_chung_chi);
+                        if (!chungChi2) {
+                            alert("Không tìm thấy chứng chỉ này!");
+                            return;
+                        }
+                        var id_chung_chi = chungChi2.id;
 
                         // Kiểm tra trùng giờ, trùng lịch thi cho cùng chứng chỉ và cách nhau ít nhất 2 tiếng
                         const res = await fetch('http://localhost:8081/lich_thi');
